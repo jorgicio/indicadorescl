@@ -1,2 +1,2 @@
-require('./server')
+require('./bot')
 require('./web')
