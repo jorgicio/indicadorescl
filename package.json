@@ -1,0 +1,19 @@
+{
+  "name": "indicadorescl",
+  "version": "1.0.0",
+  "description": "Un bot de Telegram con los indicadores económicos de Chile",
+  "main": "server.js",
+  "dependencies": {
+    "node-schedule": "^1.2.1",
+    "request": "^2.81.0",
+    "telegraf": "^3.6.7",
+    "telegraf-command-parts": "^1.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js && exit ",
+    "start": "node server.js"
+  },
+  "author": "Jorgicio",
+  "license": "MIT"
+}
