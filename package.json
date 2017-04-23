@@ -12,7 +12,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit "
+    "test": "echo \"Error: no test specified\" && exit ",
+    "start": "node index.js"
   },
   "author": "Jorgicio",
   "license": "ISC"
