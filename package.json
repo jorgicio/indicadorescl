@@ -12,7 +12,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit ",
+    "test": "node index.js && exit ",
     "start": "node index.js"
   },
   "author": "Jorgicio",
