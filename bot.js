@@ -1,8 +1,8 @@
 const telebot = require('telegraf')
-const http = require('http')
+const https = require('https')
 const req = require('request')
 const app = new telebot(process.env.BOT_TOKEN)
-const api_url = 'http://mindicador.cl/api'
+const api_url = 'https://mindicador.cl/api'
 const opciones_fecha = {
 	weekday: 'long',
     year: 'numeric',
@@ -54,7 +54,7 @@ app.command('start',(ctx) => {
 	}
 	ctx.reply(mensaje)
 	schedule.scheduleJob(string, (y) => {
-		http.get(api_url,(res) => {
+		https.get(api_url,(res) => {
 		res.setEncoding('utf-8')
 		var data = ''
 
@@ -91,7 +91,7 @@ app.command('stop',(ctx) => {
 })
 
 app.command('indicadores',(ctx) => {
-	http.get(api_url,(res) => {
+	https.get(api_url,(res) => {
 		res.setEncoding('utf-8')
 		var data = ''
 
@@ -126,7 +126,7 @@ app.command('dolar', (ctx) => {
 	var args = (spl_txt[1] === undefined)? '' : '/' + spl_txt[1]
 	args = '/dolar' + args
 	var full_url = api_url + args
-	http.get(full_url,(res) => {
+	https.get(full_url,(res) => {
 		res.setEncoding('utf-8')
 		var data = ''
 		res.on('data', (chunk) => {
@@ -151,7 +151,7 @@ app.command('acuerdo',(ctx) => {
 	var args = (spl_txt[1] === undefined)? '' : '/' + spl_txt[1]
 	args = '/dolar_intercambio' + args
 	var full_url = api_url + args
-	http.get(full_url, (res) => {
+	https.get(full_url, (res) => {
 		res.setEncoding('utf-8')
 		var data = ''
 		res.on('data',(chunk) => {
@@ -176,7 +176,7 @@ app.command('euro',(ctx) => {
 	var args = (spl_txt[1] === undefined)? '' : '/' + spl_txt[1]
 	args = '/euro' + args
 	var full_url = api_url + args
-	http.get(full_url, (res) => {
+	https.get(full_url, (res) => {
 		res.setEncoding('utf-8')
 		var data = ''
 		res.on('data',(chunk) => {
@@ -201,7 +201,7 @@ app.command('uf',(ctx) => {
 	var args = (spl_txt[1] === undefined)? '' : '/' + spl_txt[1]
 	args = '/uf' + args
 	var full_url = api_url + args
-	http.get(full_url, (res) => {
+	https.get(full_url, (res) => {
 		res.setEncoding('utf-8')
 		var data = ''
 		res.on('data',(chunk) => {
@@ -226,7 +226,7 @@ app.command('utm',(ctx) => {
 	var args = (spl_txt[1] === undefined)? '' : '/' + spl_txt[1]
 	args = '/utm' + args
 	var full_url = api_url + args
-	http.get(full_url, (res) => {
+	https.get(full_url, (res) => {
 		res.setEncoding('utf-8')
 		var data = ''
 		res.on('data',(chunk) => {
@@ -251,7 +251,7 @@ app.command('imacec',(ctx) => {
 	var args = (spl_txt[1] === undefined)? '' : '/' + spl_txt[1]
 	args = '/imacec' + args
 	var full_url = api_url + args
-	http.get(full_url, (res) => {
+	https.get(full_url, (res) => {
 		res.setEncoding('utf-8')
 		var data = ''
 		res.on('data',(chunk) => {
@@ -276,7 +276,7 @@ app.command('ipc',(ctx) => {
 	var args = (spl_txt[1] === undefined)? '' : '/' + spl_txt[1]
 	args = '/ipc' + args
 	var full_url = api_url + args
-	http.get(full_url, (res) => {
+	https.get(full_url, (res) => {
 		res.setEncoding('utf-8')
 		var data = ''
 		res.on('data',(chunk) => {
@@ -301,7 +301,7 @@ app.command('ivp',(ctx) => {
 	var args = (spl_txt[1] === undefined)? '' : '/' + spl_txt[1]
 	args = '/ivp' + args
 	var full_url = api_url + args
-	http.get(full_url, (res) => {
+	https.get(full_url, (res) => {
 		res.setEncoding('utf-8')
 		var data = ''
 		res.on('data',(chunk) => {
@@ -326,7 +326,7 @@ app.command('tpm',(ctx) => {
 	var args = (spl_txt[1] === undefined)? '' : '/' + spl_txt[1]
 	args = '/tpm' + args
 	var full_url = api_url + args
-	http.get(full_url, (res) => {
+	https.get(full_url, (res) => {
 		res.setEncoding('utf-8')
 		var data = ''
 		res.on('data',(chunk) => {
@@ -351,7 +351,7 @@ app.command('cobre',(ctx) => {
 	var args = (spl_txt[1] === undefined)? '' : '/' + spl_txt[1]
 	args = '/libra_cobre' + args
 	var full_url = api_url + args
-	http.get(full_url, (res) => {
+	https.get(full_url, (res) => {
 		res.setEncoding('utf-8')
 		var data = ''
 		res.on('data',(chunk) => {
@@ -376,7 +376,7 @@ app.command('desempleo',(ctx) => {
 	var args = (spl_txt[1] === undefined)? '' : '/' + spl_txt[1]
 	args = '/tasa_desempleo' + args
 	var full_url = api_url + args
-	http.get(full_url, (res) => {
+	https.get(full_url, (res) => {
 		res.setEncoding('utf-8')
 		var data = ''
 		res.on('data',(chunk) => {
