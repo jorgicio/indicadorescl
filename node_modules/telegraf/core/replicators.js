@@ -39,7 +39,7 @@ module.exports = {
   text: (message) => {
     const entities = message.entities || []
     return {
-      parse_mode: 'HTML',
+      parse_mode: entities.length > 0 ? 'HTML' : '',
       text: entities.reduceRight(applyEntity, message.text)
     }
   },
@@ -66,34 +66,43 @@ module.exports = {
     }
   },
   voice: (message) => {
+    const entities = message.caption_entities || []
     return {
       voice: message.voice.file_id,
       duration: message.voice.duration,
-      caption: message.caption
+      caption: entities.reduceRight(applyEntity, message.caption),
+      parse_mode: entities.length > 0 ? 'HTML' : ''
     }
   },
   audio: (message) => {
+    const entities = message.caption_entities || []
     return {
       audio: message.audio.file_id,
       duration: message.audio.duration,
       performer: message.audio.performer,
       title: message.audio.title,
-      caption: message.caption
+      caption: entities.reduceRight(applyEntity, message.caption),
+      parse_mode: entities.length > 0 ? 'HTML' : ''
     }
   },
   video: (message) => {
+    const entities = message.caption_entities || []
     return {
       video: message.video.file_id,
-      caption: message.caption,
+      caption: entities.reduceRight(applyEntity, message.caption),
+      parse_mode: entities.length > 0 ? 'HTML' : '',
       duration: message.video.duration,
       width: message.video.width,
-      height: message.video.height
+      height: message.video.height,
+      supports_streaming: !!message.video.supports_streaming
     }
   },
   document: (message) => {
+    const entities = message.caption_entities || []
     return {
       document: message.document.file_id,
-      caption: message.caption
+      caption: entities.reduceRight(applyEntity, message.caption),
+      parse_mode: entities.length > 0 ? 'HTML' : ''
     }
   },
   sticker: (message) => {
@@ -102,9 +111,11 @@ module.exports = {
     }
   },
   photo: (message) => {
+    const entities = message.caption_entities || []
     return {
       photo: message.photo[message.photo.length - 1].file_id,
-      caption: message.caption
+      parse_mode: entities.length > 0 ? 'HTML' : '',
+      caption: entities.reduceRight(applyEntity, message.caption)
     }
   },
   video_note: (message) => {
