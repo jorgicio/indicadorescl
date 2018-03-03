@@ -2,7 +2,7 @@ const telebot = require('telegraf')
 const https = require('https')
 const req = require('request')
 const app = new telebot(process.env.BOT_TOKEN)
-const api_url = 'https://indicadoresdeldia.cl/webservice/indicadores.json'
+const api_url = 'https://mindicador.cl/api'
 const opciones_fecha = {
 	weekday: 'long',
     year: 'numeric',
@@ -49,24 +49,21 @@ app.command('start',(ctx) => {
 		
 		res.on('end', () => {
 			var dailyIndicators = JSON.parse(data)
-			var fecha = new Date(dailyIndicators.date)
+			var fecha = new Date(dailyIndicators.fecha)
 			var indic = "Buenos días, " + ctx.from.first_name + "\n"
 			indic += "Éstos son los indicadores para el día de hoy " + fecha.toLocaleDateString('es',opciones_fecha) + ":\n\n"
-			indic += "Dólar: $" + dailyIndicators.moneda.dolar + "\n"
-			indic += "Euro: $" + dailyIndicators.moneda.euro +"\n"
-			indic += "UTM: $" + dailyIndicators.moneda.utm + "\n"
-			indic += "UF: $" + dailyIndicators.moneda.uf + "\n"
-			indic += "IPC: " + dailyIndicators.moneda.ipc + "%\n"
-			indic += "Índice General de Precios de Acciones (IGPA): " + parseFloat(dailyIndicators.bolsa.igpa.replace(/,/g,'.')) + "\n"
-			indic += "Índice de Precio Selectivo de Acciones (IPSA): " + parseFloat(dailyIndicators.bolsa.ipsa.replace(/,/g,'.')) + "\n"
-			indic += "Índice Inter-10: " + parseFloat(dailyIndicators.bolsa.inter10.replace(/,/g,'.')) + "\n"
-			indic += "Banca: " + parseFloat(dailyIndicators.bolsa.banca.replace(/,/g,'.')) + "\n"
-			indic += "Commodities: " + parseFloat(dailyIndicators.bolsa.commodities.replace(/,/g,'.')) + "\n"
-			indic += "Constructora e Inmobiliarias: " + parseFloat(dailyIndicators.bolsa.const_inmob.replace(/,/g,'.')) + "\n"
-			indic += "Industrial: " + parseFloat(dailyIndicators.bolsa.industrial.replace(/,/g,'.')) + "\n"
-			indic += "Retail: " + parseFloat(dailyIndicators.bolsa.retail.replace(/,/g,'.')) + "\n"
-			indic += "Utilidades: " + parseFloat(dailyIndicators.bolsa.utilities.replace(/,/g,'.')) + "\n"
-			indic += "Santoral del día de hoy: " + dailyIndicators.santoral.hoy + "\n"
+			indic += "Dólar: $" + dailyIndicators.dolar.valor + "\n"
+			indic += "Dólar intercambio: $" + dailyIndicators.dolar_intercambio.valor + "\n"
+			indic += "Euro: $" + dailyIndicators.euro.valor +"\n"
+			indic += "UTM: $" + dailyIndicators.utm.valor + "\n"
+			indic += "UF: $" + dailyIndicators.uf.valor + "\n"
+			indic += "IPC: " + dailyIndicators.ipc.valor + "%\n"
+            indic += "IVP: $" + dailyIndicators.ivp.valor + "\n"
+            indic += "IMACEC: " + dailyIndicators.imacec.valor + "%\n"
+            indic += "Tasa Política Monetaria: " + dailyIndicators.tpm.valor + "%\n"
+            indic += "Libra de cobre: USD$" + dailyIndicators.libra_cobre.valor + "\n"
+            indic += "Tasa de desempleo: " + dailyIndicators.tasa_desempleo.valor + "%\n"
+            indic += "Bitcoin: USD$" + dailyIndicators.bitcoin.valor + "\n"
 			ctx.reply(indic)
 			})
 		}).on('error',function(err){
@@ -90,23 +87,20 @@ app.command('indicadores',(ctx) => {
 		
 		res.on('end', () => {
 			var dailyIndicators = JSON.parse(data)
-			var fecha = new Date(dailyIndicators.date)
+			var fecha = new Date(dailyIndicators.fecha)
 			var indic = "Éstos son los indicadores para el día de hoy " + fecha.toLocaleDateString('es',opciones_fecha) + ":\n\n"
-			indic += "Dólar: $" + dailyIndicators.moneda.dolar + "\n"
-			indic += "Euro: $" + dailyIndicators.moneda.euro +"\n"
-			indic += "UTM: $" + dailyIndicators.moneda.utm + "\n"
-			indic += "UF: $" + dailyIndicators.moneda.uf + "\n"
-			indic += "IPC: " + dailyIndicators.moneda.ipc + "%\n"
-			indic += "Índice General de Precios de Acciones (IGPA): " + parseFloat(dailyIndicators.bolsa.igpa.replace(/,/g,'.')) + "\n"
-			indic += "Índice de Precio Selectivo de Acciones (IPSA): " + parseFloat(dailyIndicators.bolsa.ipsa.replace(/,/g,'.')) + "\n"
-			indic += "Índice Inter-10: " + parseFloat(dailyIndicators.bolsa.inter10.replace(/,/g,'.')) + "\n"
-			indic += "Banca: " + parseFloat(dailyIndicators.bolsa.banca.replace(/,/g,'.')) + "\n"
-			indic += "Commodities: " + parseFloat(dailyIndicators.bolsa.commodities.replace(/,/g,'.')) + "\n"
-			indic += "Constructora e Inmobiliarias: " + parseFloat(dailyIndicators.bolsa.const_inmob.replace(/,/g,'.')) + "\n"
-			indic += "Industrial: " + parseFloat(dailyIndicators.bolsa.industrial.replace(/,/g,'.')) + "\n"
-			indic += "Retail: " + parseFloat(dailyIndicators.bolsa.retail.replace(/,/g,'.')) + "\n"
-			indic += "Utilidades: " + parseFloat(dailyIndicators.bolsa.utilities.replace(/,/g,'.')) + "\n"
-			indic += "Santoral del día de hoy: " + dailyIndicators.santoral.hoy + "\n"
+			indic += "Dólar: $" + dailyIndicators.dolar.valor + "\n"
+			indic += "Dólar intercambio: $" + dailyIndicators.dolar_intercambio.valor + "\n"
+			indic += "Euro: $" + dailyIndicators.euro.valor +"\n"
+			indic += "UTM: $" + dailyIndicators.utm.valor + "\n"
+			indic += "UF: $" + dailyIndicators.uf.valor + "\n"
+			indic += "IPC: " + dailyIndicators.ipc.valor + "%\n"
+            indic += "IVP: $" + dailyIndicators.ivp.valor + "\n"
+            indic += "IMACEC: " + dailyIndicators.imacec.valor + "%\n"
+            indic += "Tasa Política Monetaria: " + dailyIndicators.tpm.valor + "%\n"
+            indic += "Libra de cobre: USD$" + dailyIndicators.libra_cobre.valor + "\n"
+            indic += "Tasa de desempleo: " + dailyIndicators.tasa_desempleo.valor + "%\n"
+            indic += "Bitcoin: USD$" + dailyIndicators.bitcoin.valor + "\n"
 			ctx.reply(indic)
 		})
 	}).on('error',function(err){
