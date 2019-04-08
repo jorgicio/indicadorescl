@@ -1,6 +1,6 @@
 {
   "name": "indicadorescl",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Un bot de Telegram con los indicadores económicos de Chile",
   "main": "index.js",
   "dependencies": {

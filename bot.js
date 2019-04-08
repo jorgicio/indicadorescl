@@ -52,18 +52,18 @@ app.command('start',(ctx) => {
 			var fecha = new Date(dailyIndicators.fecha)
 			var indic = "Buenos días, " + ctx.from.first_name + "\n"
 			indic += "Éstos son los indicadores para el día de hoy " + fecha.toLocaleDateString('es',opciones_fecha) + ":\n\n"
-			indic += "Dólar: CLP$ " + dailyIndicators.dolar.valor + "\n"
-			indic += "Dólar intercambio: CLP$ " + dailyIndicators.dolar_intercambio.valor + "\n"
-			indic += "Euro: CLP$ " + dailyIndicators.euro.valor +"\n"
-			indic += "UTM: CLP$ " + dailyIndicators.utm.valor + "\n"
-			indic += "UF: CLP$ " + dailyIndicators.uf.valor + "\n"
+			indic += "Dólar: CLP $" + dailyIndicators.dolar.valor + "\n"
+			indic += "Dólar intercambio: CLP $" + dailyIndicators.dolar_intercambio.valor + "\n"
+			indic += "Euro: CLP $" + dailyIndicators.euro.valor +"\n"
+			indic += "UTM: CLP $" + dailyIndicators.utm.valor + "\n"
+			indic += "UF: CLP $" + dailyIndicators.uf.valor + "\n"
 			indic += "IPC: " + dailyIndicators.ipc.valor + "%\n"
-            indic += "IVP: CLP$ " + dailyIndicators.ivp.valor + "\n"
+            indic += "IVP: CLP $" + dailyIndicators.ivp.valor + "\n"
             indic += "IMACEC: " + dailyIndicators.imacec.valor + "%\n"
             indic += "Tasa Política Monetaria: " + dailyIndicators.tpm.valor + "%\n"
-            indic += "Libra de cobre: USD$ " + dailyIndicators.libra_cobre.valor + "\n"
+            indic += "Libra de cobre: USD $" + dailyIndicators.libra_cobre.valor + "\n"
             indic += "Tasa de desempleo: " + dailyIndicators.tasa_desempleo.valor + "%\n"
-            indic += "Bitcoin: USD$ " + dailyIndicators.bitcoin.valor + "\n"
+            indic += "Bitcoin: USD $" + dailyIndicators.bitcoin.valor + "\n"
 			ctx.reply(indic)
 			})
 		}).on('error',function(err){
@@ -89,18 +89,18 @@ app.command('indicadores',(ctx) => {
 			var dailyIndicators = JSON.parse(data)
 			var fecha = new Date(dailyIndicators.fecha)
 			var indic = "Éstos son los indicadores para el día de hoy " + fecha.toLocaleDateString('es',opciones_fecha) + ":\n\n"
-			indic += "Dólar: CLP$ " + dailyIndicators.dolar.valor + "\n"
-			indic += "Dólar intercambio: CLP$ " + dailyIndicators.dolar_intercambio.valor + "\n"
-			indic += "Euro: CLP$ " + dailyIndicators.euro.valor +"\n"
-			indic += "UTM: CLP$ " + dailyIndicators.utm.valor + "\n"
-			indic += "UF: CLP$ " + dailyIndicators.uf.valor + "\n"
+			indic += "Dólar: CLP $" + dailyIndicators.dolar.valor + "\n"
+			indic += "Dólar intercambio: CLP $" + dailyIndicators.dolar_intercambio.valor + "\n"
+			indic += "Euro: CLP $" + dailyIndicators.euro.valor +"\n"
+			indic += "UTM: CLP $" + dailyIndicators.utm.valor + "\n"
+			indic += "UF: CLP $" + dailyIndicators.uf.valor + "\n"
 			indic += "IPC: " + dailyIndicators.ipc.valor + "%\n"
-            indic += "IVP: CLP$ " + dailyIndicators.ivp.valor + "\n"
+            indic += "IVP: CLP $" + dailyIndicators.ivp.valor + "\n"
             indic += "IMACEC: " + dailyIndicators.imacec.valor + "%\n"
             indic += "Tasa Política Monetaria: " + dailyIndicators.tpm.valor + "%\n"
-            indic += "Libra de cobre: USD$ " + dailyIndicators.libra_cobre.valor + "\n"
+            indic += "Libra de cobre: USD $" + dailyIndicators.libra_cobre.valor + "\n"
             indic += "Tasa de desempleo: " + dailyIndicators.tasa_desempleo.valor + "%\n"
-            indic += "Bitcoin: USD$ " + dailyIndicators.bitcoin.valor + "\n"
+            indic += "Bitcoin: USD $" + dailyIndicators.bitcoin.valor + "\n"
 			ctx.reply(indic)
 		})
 	}).on('error',function(err){
