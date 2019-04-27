@@ -1,10 +1,12 @@
 var express = require('express')
-var packageInfo = require('./package.json')
+var path = require('path')
 
 var srv = express()
 
+srv.use('/static',express.static(path.join(__dirname + '/static')))
+
 srv.get('/',(req,res) => {
-	res.json({ version: packageInfo.version })
+	res.sendFile(path.join(__dirname + '/index.html'))
 })
 
 var server = srv.listen(process.env.PORT, () => {

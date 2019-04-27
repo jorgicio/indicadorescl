@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+		<link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="static/css/style.css">
+		<title>IndicadoresCL: Un bot de indicadores por Jorgicio</title>
+	</head>
+	<body>
+		<div class="container">
+		<h1>IndicadoresCL</h1>
+		<h2>Obtén tus indicadores económicos desde la comodidad de <a href="https://telegram.org">Telegram</a></h2>
+			<div class="container-fluid" id="about">
+			<h3> Acerca de </h3>
+			<p>He creado este bot con la finalidad de obtener información sobre el dólar, pero también aplica para otros indicadores necesarios como el euro y el precio del cobre. Espero que sea de utilidad para todos.</p>
+			<p>Está hecho con mucho amor en <a href="https://nodejs.org">NodeJS</a> y hosteado en <a href="https://heroku.com">Heroku</a>. Como editor, usé <a href="https://www.vim.org">Vim</a>.</p>
+			<p>Como framework para NodeJS, usé <a href="https://telegraf.js.org">Telegraf</a>.</p>
+			<p>Está licenciado bajo el <a href="https://es.wikipedia.org/Licencia MIT">Instituto Tecnológico de Massachussets (MIT)</a> y el código fuente lo puedes mirar en <a href="https://github.com/jorgicio/indicadorescl">Github</a>.</p>
+			<p>Para los indicadores económicos, uso la API de <a href="https://mindicador.cl">Mindicador</a>, que utiliza los datos del <a href="https://www.bcentral.cl">Banco Central de Chile</a></p>
+			</div>
+			<div class="container-fluid" id="usage">
+				<h3>¿Cómo uso el bot?</h3>
+				<p>Primero debes instalar Telegram, sea para <a href="https://desktop.telegram.org">escritorio</a> (Windows, Mac, Linux o cualquier otro Unix) o para móviles <a href="https://play.google.com/store/apps/details?id=org.telegram.messenger">Android</a> o <a href="https://itunes.apple.com/cl/app/telegram-messenger/id686449807?mt=8">iOS</a>.</p>
+				<p>Luego, busca el bot "IndicadoresCL" o haz click <a href="https://t.me/indicadoresclbot">acá</a> para abrirlo desde el escritorio.</p>
+				<p>Para consultar los indicadores, basta con usar el comando <code>/indicadores</code> y se desplegará la información solicitada. Consulta la ayuda con el comando <code>/help</code>.</p>
+				<p>Los indicadores utilizados son:</p>
+				<ul>
+					<li>Valor del dólar observado en CLP</li>
+					<li>Valor del dólar acuerdo en CLP</li>
+					<li>Valor del euro (€) en CLP</li>
+					<li>Unidad Tributaria Mensual (UTM) en CLP</li>
+					<li>Unidad de Fomento (UF) en CLP</li>
+					<li>Índice de Precios al Consumidor (IPC) en %</li>
+					<li>Índice Valor Promedio (IVP) en %</li>
+					<li>Indicador Mensual de Actividad Económica (IMACEC) en CLP</li>
+					<li>Tasa Política Monetaria (TPM) en %</li>
+					<li>Valor de la libra de cobre en USD</li>
+					<li>Tasa de desempleo en %</li>
+					<li>Valor del bitcoin en USD</li>
+				</ul>
+			</div>
+			<div class="container-fluid" id="contact">
+				<h3>¿Sugerencias? ¿Reclamos? ¿Flores?</h3>
+				<p>Si gustas contactarme, escríbeme a <a href="mailto:jpizarrocallejas@gmail.com?subject = Hola, vengo a saludarte">jpizarrocallejas [arroba] gmail [punto] com</a>. También puedes ver <a href="https://www.jorgicio.net">mi página web</a> donde encontrarás mis RRSS, y leer <a href="https://blog.jorgicio.net">mi blog</a>.</p>
+				<p>También puedes escribirme a mi <a href="https://t.me/jorgicio">Telegram</a> y/o llamarme por ahí si lo deseas.</p>
+			</div>
+			<div class="container-fluid" id="donate">
+				<h3>¿Te gusta el bot?</h3>
+				<p>Puedes ayudarme difundiendo esta información con tus amigos. También puedes escribirme usando la información de contacto en la sección anterior para ver cómo ayudarme.</p>
+				<p>También puedes hacerme una donación por PayPal.</p>
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+					<input type="hidden" name="cmd" value="_donations" />
+					<input type="hidden" name="business" value="FAKJBENZSVUZL" />
+					<input type="hidden" name="currency_code" value="USD" />
+					<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+					<img alt="" border="0" src="https://www.paypal.com/en_CL/i/scr/pixel.gif" width="1" height="1" />
+				</form>				
+			</div>
+			<div class="container-fluid" id="footer">
+				Jorge Pizarro Callejas, Jorgicio, <span id="anio"></span>, todos los derechos reservados.
+			</div>
+		</div>
+	</body>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+	<script src="static/js/bootstrap.min.js" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		var anioactual = new Date();
+		$(document).ready(function (){
+			$("#anio").text(anioactual.getFullYear());
+		});
+	</script>
+</html>

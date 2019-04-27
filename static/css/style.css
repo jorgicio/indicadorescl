@@ -1,0 +1,27 @@
+body{
+	text-align: center;
+	padding-top: 2em;
+}
+body h3{
+	text-decoration: underline;
+	text-align: justify;
+}
+#about{
+	padding-top: 1em;
+}
+div > p{
+	font-size: 1em;
+	text-align: justify;
+}
+
+ul{
+	text-align: justify;
+}
+
+#donate > form{
+	padding: 1.1em;
+}
+
+#footer{
+	padding: 0.5em;
+}
